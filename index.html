@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Submition Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form name="submit-to-google-sheet">
+    <input name="email" type="email" id="email" placeholder="Email" required>
+    <button type="submit" id="submit-btn">Send</button>
+    <span id="msg"></span>
+  </form>
+  
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyj26ZP6OB-6gNhju5kHD68uhfgGbPp6sS29OdZpBOiQ86VzNwv-M4HVpY0o9z4pyAS/exec'
+    const form = document.forms['submit-to-google-sheet']
+    let msg = document.querySelector(`#msg`)
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(
+          msg.innerHTML = "*submitted",
+          setTimeout(() => {
+            msg.innerHTML="";
+          }, 5000),
+          form.reset()
+        )
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
