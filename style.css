@@ -10,6 +10,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 form{
     position: relative;
@@ -25,6 +26,7 @@ form{
     font-size: 20px;
     font-weight: 500;
     background-color: orange;
+    cursor: pointer;
 }
 #msg{
     display: inline-block;
@@ -32,4 +34,51 @@ form{
     position: absolute;
     top: 110%;
     left: 5px;
+}
+
+.submit-confirm{
+    min-width: 400px;
+    padding: 25px;
+    background-color: #fefae0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+.submit-done{
+    visibility: visible;
+}
+.submit-confirm .tick{
+    width: 90px;
+    position: relative;
+    top: -70px;
+    border-radius: 50%;
+    box-shadow:   0 2.5px 5px #4a5759 ,0 -2.5px 5px #dedbd2;
+}
+.submit-confirm h3{
+    font-size: 35px;
+    margin-top: -50px;
+    font-weight: 600;
+}
+.submit-confirm p{
+    font-size: 20px;
+    text-align: center;
+    font-weight: 550;
+}
+.submit-confirm button{
+    width: 100%;
+    padding: 7.5px;
+    background-color: #6FD649;
+    border: 0;
+    outline: 0;
+    font-size: 25px;
+    font-weight: 550;
+    color: #fff;
+    cursor: pointer;
 }
